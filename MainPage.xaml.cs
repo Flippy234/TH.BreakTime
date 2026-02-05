@@ -13,21 +13,17 @@ public partial class MainPage : ContentPage
         Title = "Break Time";
     }
 
+
+    private void StartTimer(int minutes)
+    {
+        isRunning = false;
+        
+        oBreakTimer.SetBreakMinutes(minutes);
+        lblDisplay.Text = oBreakTimer.GetFormattedString();
+    }
     private void BtnTake5_OnClicked(object sender, EventArgs e)
     {
         StartTimer(5);
-        isRunning = true;
-        
-        Application.Current.Dispatcher.StartTimer(1); () =>
-        {
-            if (isRunning)
-            {
-                oBreakTimer.SetTickCount();
-                lblDisplay.Text = oBreakTimer.GetFormatedString();
-            }
-
-            return isRunning;
-        };
     }
 
     private void BtnTake10_OnClicked(object sender, EventArgs e)
