@@ -27,10 +27,14 @@ public class BreakTimeLogic
     {
         if (_intMin == 0 && _intSec == 0)
             return;
+        
         if (_intSec == 0)
         {
-            _intSec--;
-            _intSec = 59;
+            if (_intMin > 0)
+            {
+                _intMin--;
+                _intSec = 59;
+            }
         }
         else
         {
@@ -38,9 +42,14 @@ public class BreakTimeLogic
         }
     }
 
+    public bool IsTimeUp()
+    {
+        return _intMin == 0 && _intSec == 0;
+    }
+
 
     public string GetFormattedString()
     {
-        return _intMin.ToString().PadLeft(2, '0') + _intSec.ToString().left" Minutes Left");
+        return $"{_intMin:00}:{_intSec:00} Minutes Left";
     }
 }
