@@ -5,6 +5,7 @@ public partial class MainPage : ContentPage
 {
     private BreakTimeLogic oBreakTimer = new BreakTimeLogic();
     private bool isRunning = false;
+    private bool isFlickering = false;
     
     
     public MainPage()
@@ -17,6 +18,8 @@ public partial class MainPage : ContentPage
     private void StartTimer(int minutes)
     {
         isRunning = false;
+        isFlickering = false;
+        ftmMain.Background = Colors.White;
         
         oBreakTimer.SetBreakMinutes(minutes);
         lblDisplay.Text = oBreakTimer.GetFormattedString();
@@ -33,20 +36,12 @@ public partial class MainPage : ContentPage
             if (oBreakTimer.IsTimeUp())
             {
                 isRunning = false;
-                lblDisplay.Text = "Break timer is over!";
-                if (isRunning)
-                {
-                    isRunning = false;
-                    ftmMain.Background = Colors.Red;
-                }
-                else
-                {
-                    isRunning = true;
-                    ftmMain.Background = Colors.White
-                }
-               
-            }
+                lblDisplay.Text = "Break time is over!";
 
+                ftmMain.Background = Colors.Red;
+                return false;
+            }
+            
             return true;
         });
     }
