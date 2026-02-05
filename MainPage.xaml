@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BreakTime.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,30">
+
+            <Label x:Name="lblDisplay" Text="Select your break time!" FontSize="Title" Padding="0,75" HorizontalOptions="Center" />
+            
+            <Button x:Name="btnTake5" Text="Take 5" Clicked="BtnTake5_OnClicked" />
+            <Button x:Name="btnTake10" Text="Take 10" Clicked="BtnTake10_OnClicked" />
+            <Button x:Name="btnTake15" Text="Take 15" Clicked="BtnTake15_OnClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
