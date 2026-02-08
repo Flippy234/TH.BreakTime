@@ -21,6 +21,7 @@ public partial class MainPage : ContentPage
         isFlickering = false;
         ftmMain.Background = Colors.White;
         
+        oBreakTimer.Reset();
         oBreakTimer.SetBreakMinutes(minutes);
         lblDisplay.Text = oBreakTimer.GetFormattedString();
         isRunning = true;
@@ -37,7 +38,6 @@ public partial class MainPage : ContentPage
             {
                 isRunning = false;
                 lblDisplay.Text = "Break time is over!";
-
                 ftmMain.Background = Colors.Red;
                 return false;
             }

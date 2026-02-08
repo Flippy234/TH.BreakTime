@@ -11,7 +11,7 @@ public class BreakTimeLogic
         Reset();
     }
 
-    private void Reset()
+    public void Reset()
     {
         _intSec = 0;
         _intMin = 0;
